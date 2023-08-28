@@ -10,11 +10,12 @@
         <br>
         <h4>{{ counterData.title }}</h4>
         <h5 @click="increaseReactiveCount">{{ counterData.count }}</h5>
+        <h6>It is {{ oddOrEven }}!!!</h6>
     </div>
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 
 const count = ref(0);
 
@@ -39,4 +40,15 @@ const increaseCount = () => {
         count.value++;
     }
 }
+
+const isOddOrEven = ref('');
+
+const oddOrEven = computed(() => {
+    if(counterData.count % 2 === 0) {
+        isOddOrEven.value = 'Even'
+    } else {
+        isOddOrEven.value = 'Odd'
+    }
+    return isOddOrEven.value
+})
 </script>
