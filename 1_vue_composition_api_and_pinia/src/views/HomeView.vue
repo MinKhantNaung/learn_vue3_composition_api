@@ -11,5 +11,6 @@ import TemplateSyntax from '../components/TemplateSyntax.vue';
     <ComputedComponent />
     <ClassComponent class="text-white bg-black" />
     <StyleBinding />
+    <ConditionalRender />
   </div>
 </template>
