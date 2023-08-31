@@ -1,5 +1,4 @@
 <script setup>
-import ClassComponent from '../components/ClassComponent.vue';
 import Counter from '../components/Counter.vue';
 import TemplateSyntax from '../components/TemplateSyntax.vue';
 
@@ -11,5 +10,6 @@ import TemplateSyntax from '../components/TemplateSyntax.vue';
     <TemplateSyntax />
     <ComputedComponent />
     <ClassComponent class="text-white bg-black" />
+    <StyleBinding />
   </div>
 </template>
