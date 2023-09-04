@@ -1,5 +1,6 @@
 <script setup>
 import Counter from "../components/Counter.vue";
+import EventHandling from "../components/EventHandling.vue";
 import ListRendering from "../components/ListRendering.vue";
 import TemplateSyntax from "../components/TemplateSyntax.vue";
 </script>
@@ -13,5 +14,6 @@ import TemplateSyntax from "../components/TemplateSyntax.vue";
     <StyleBinding />
     <ConditionalRender />
     <ListRendering />
+    <EventHandling />
   </div>
 </template>
