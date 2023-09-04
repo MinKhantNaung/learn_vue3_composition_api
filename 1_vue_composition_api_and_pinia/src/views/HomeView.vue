@@ -1,16 +1,17 @@
 <script setup>
-import Counter from '../components/Counter.vue';
-import TemplateSyntax from '../components/TemplateSyntax.vue';
-
+import Counter from "../components/Counter.vue";
+import ListRendering from "../components/ListRendering.vue";
+import TemplateSyntax from "../components/TemplateSyntax.vue";
 </script>
 
 <template>
   <div>
-    <Counter/>
+    <Counter />
     <TemplateSyntax />
     <ComputedComponent />
     <ClassComponent class="text-white bg-black" />
     <StyleBinding />
     <ConditionalRender />
+    <ListRendering />
   </div>
 </template>
