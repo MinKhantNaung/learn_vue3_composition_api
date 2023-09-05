@@ -4,6 +4,7 @@ import EventHandling from "../components/EventHandling.vue";
 import FormInput from "../components/FormInput.vue";
 import ListRendering from "../components/ListRendering.vue";
 import TemplateSyntax from "../components/TemplateSyntax.vue";
+import WatcherComponent from "../components/WatcherComponent.vue";
 </script>
 
 <template>
@@ -17,5 +18,6 @@ import TemplateSyntax from "../components/TemplateSyntax.vue";
     <ListRendering />
     <EventHandling />
     <FormInput />
+    <WatcherComponent />
   </div>
 </template>
