@@ -20,11 +20,20 @@
     <br />
     {{ changeXY }} <br />
     sum is {{ total }}
+
+    <br>
+    
+    <h3>Count : <input type="text" v-model="obj.count"></h3>
+    <h5>{{ newCount }}</h5>
+    <h4>Count 2 : <input type="text" v-model="obj2.count"></h4>
+    <h5>{{ newCount2 }}</h5>
+    <h4>Watch in Nested Object</h4>
+    <h5><input type="text" v-model="nestedObj.count.value"> Replaced Count is {{ replaceCount }}</h5>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 
 const question = ref("");
 const answer = ref("Question generally contains ?");
@@ -80,4 +89,53 @@ watch([x, () => y.value], ([newX, newY]) => {
 watch([x, () => y.value, () => z.value], ([newX, newY, newZ]) => {
   changeXYZ.value = `x is ${newX}, y is ${newY} and z is ${newZ}`;
 });
+
+// how to use watch for array, object
+const newCount = ref(0);
+
+const obj = ref({
+  count: 0,
+  title: 'Laravel Developer',
+});
+
+watch(() => obj.value.count, (newTitle) => {
+ newCount.value = newTitle
+})
+
+const newCount2 = ref(0);
+
+const obj2 = reactive({
+  count: 0,
+  title: 'Laravel Developer'
+})
+
+watch(() => obj2.count, (newName) => {
+  newCount2.value = newName
+})
+
+// watch object
+watch(obj.value, (newObj) => {
+  console.log(`The new count is ${newObj.count}`)
+})
+
+// new and old in value of object
+watch(() => obj.value.count, (newCount, oldCount) => {
+  alert(`new count is ${newCount} and old count is ${oldCount}`)
+})
+
+// new and old in object
+watch(obj.value, (newObj, oldObj) => {
+  alert(newObj.count)
+})
+
+// nested object
+const nestedObj = reactive({
+  count: {value: 0, title: 'hello'}
+})
+
+const replaceCount = ref('');
+
+watch(() => nestedObj.count.value, (newCount, oldCount) => {
+  replaceCount.value = newCount
+})
 </script>
