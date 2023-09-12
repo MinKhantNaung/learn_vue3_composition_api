@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated } from "vue";
+import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, ref } from "vue";
 import Counter from "../components/Counter.vue";
 import EventHandling from "../components/EventHandling.vue";
 import FormInput from "../components/FormInput.vue";
@@ -30,11 +30,15 @@ onBeforeUpdate(() => {
 onUpdated(() => {
   console.log('on updated')
 })
+
+const counterRef = ref(null)
+
+onMounted(() => console.log(counterRef.value + 'ref on component'))
 </script>
 
 <template>
   <div>
-    <Counter />
+    <Counter ref="counterRef" />
     <TemplateSyntax />
     <ComputedComponent />
     <ClassComponent class="text-white bg-black" />
