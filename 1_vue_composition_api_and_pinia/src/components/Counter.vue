@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref } from "vue";
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, onUnmounted, reactive, ref } from "vue";
 
 const count = ref(0);
 
