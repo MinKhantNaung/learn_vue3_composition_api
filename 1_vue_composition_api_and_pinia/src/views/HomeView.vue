@@ -36,6 +36,11 @@ const counterRef = ref(null)
 onMounted(() => console.log(counterRef.value + 'ref on component'))
 
 const postTitle = ref('Laravel Vue Nuxt Pinia')
+
+const postObj = ref({
+  title: 'hello',
+  hero: 'Itachi'
+})
 </script>
 
 <template>
@@ -50,6 +55,6 @@ const postTitle = ref('Laravel Vue Nuxt Pinia')
     <EventHandling />
     <FormInput />
     <WatcherComponent />
-    <SinglePost title="Laravel Vue Developer" postNum="50" :postTitle="postTitle" />
+    <SinglePost title="Laravel Vue Developer" postNum="50" :postTitle="postTitle" :postObj="postObj" />
   </div>
 </template>
