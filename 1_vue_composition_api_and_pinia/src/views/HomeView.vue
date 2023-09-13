@@ -1,11 +1,11 @@
 <script setup>
 import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, ref } from "vue";
-import Counter from "../components/Counter.vue";
 import EventHandling from "../components/EventHandling.vue";
 import FormInput from "../components/FormInput.vue";
 import ListRendering from "../components/ListRendering.vue";
 import TemplateSyntax from "../components/TemplateSyntax.vue";
 import WatcherComponent from "../components/WatcherComponent.vue";
+import SinglePost from "../components/SinglePost.vue";
 
 onBeforeMount(() => {
     console.log('before mount')
@@ -34,6 +34,8 @@ onUpdated(() => {
 const counterRef = ref(null)
 
 onMounted(() => console.log(counterRef.value + 'ref on component'))
+
+const postTitle = ref('Laravel Vue Nuxt Pinia')
 </script>
 
 <template>
@@ -48,5 +50,6 @@ onMounted(() => console.log(counterRef.value + 'ref on component'))
     <EventHandling />
     <FormInput />
     <WatcherComponent />
+    <SinglePost title="Laravel Vue Developer" postNum="50" :postTitle="postTitle" />
   </div>
 </template>
