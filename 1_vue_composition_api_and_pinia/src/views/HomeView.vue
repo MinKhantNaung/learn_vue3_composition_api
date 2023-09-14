@@ -7,6 +7,7 @@ import TemplateSyntax from "../components/TemplateSyntax.vue";
 import WatcherComponent from "../components/WatcherComponent.vue";
 import SinglePost from "../components/SinglePost.vue";
 import PropValidate from "../components/PropValidate.vue";
+import PostsVue from "../components/PostsVue.vue";
 
 onBeforeMount(() => {
     console.log('before mount')
@@ -58,5 +59,7 @@ const postObj = ref({
     <WatcherComponent />
     <SinglePost title="Laravel Vue Developer" postNum="50" :postTitle="postTitle" :postObj="postObj" />
     <PropValidate :id="50" title="Laravel vue nuxt react next" :obj1="postObj" paragraph="hello" />
+    <hr>
+    <PostsVue />
   </div>
 </template>
