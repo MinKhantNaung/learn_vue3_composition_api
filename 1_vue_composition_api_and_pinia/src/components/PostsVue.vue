@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Posts Details</h1>
-        <SinglePostDetail v-for="post in posts" :key="post.id" :post="post" @edit-post="updatePost" />
+        <SinglePostDetail v-for="post in posts" :key="post.id" :post="post" @edit-post="updatePost" @update-post="update_post"/>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ const posts = ref([
     {id:3, title: 'post 3'}
 ])
 
-const updatePost = (postId) => {
+const updatePost = (postId, message) => {
     // posts.value = posts.value.map(post => {
     //     if(post.id == postId) {
     //         return{...post, title: 'post is updated' }
@@ -25,7 +25,16 @@ const updatePost = (postId) => {
     // })
     const postToUpdate = posts.value.find(post => post.id == postId)
     if(postToUpdate) {
-        postToUpdate.title = 'Hello title is updated'
+        postToUpdate.title = message
     }
+}
+
+const update_post = (postId) => {
+    posts.value = posts.value.map(post => {
+        if(post.id == postId) {
+            return {...post, title: 'post is updated'}
+        }
+        return post;
+    })
 }
 </script>
