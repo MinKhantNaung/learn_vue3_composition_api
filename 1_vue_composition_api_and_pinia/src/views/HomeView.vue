@@ -10,6 +10,7 @@ import PropValidate from "../components/PropValidate.vue";
 import PostsVue from "../components/PostsVue.vue";
 import CustomInput from "../components/CustomInput.vue";
 import UserName from '../components/UserName.vue'
+import MyButton from "../components/MyButton.vue";
 
 onBeforeMount
 (() => {
@@ -53,6 +54,11 @@ const searchText = ref('Hello Laravel + Vue + Nuxt')
 // Multiple V-model binding
 const firstName = ref('Laravel')
 const lastName = ref('Vue')
+
+// Fallthrough Attributes
+const showAlert = () => {
+  alert('You are Laravel+vue+react+nuxt+next Developer')
+}
 </script>
 
 <template>
@@ -75,5 +81,7 @@ const lastName = ref('Vue')
     <CustomInput :searchText="searchText" @update-text="searchText = $event" />
     <hr>
     <UserName v-model:firstName="firstName" v-model:lastName="lastName"/>
+    <hr>
+    <MyButton class="btn btn-success" @click.prevent="showAlert" />
   </div>
 </template>
