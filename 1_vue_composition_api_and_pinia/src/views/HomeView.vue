@@ -9,8 +9,10 @@ import SinglePost from "../components/SinglePost.vue";
 import PropValidate from "../components/PropValidate.vue";
 import PostsVue from "../components/PostsVue.vue";
 import CustomInput from "../components/CustomInput.vue";
+import UserName from '../components/UserName.vue'
 
-onBeforeMount(() => {
+onBeforeMount
+(() => {
     console.log('before mount')
 })
 
@@ -47,6 +49,10 @@ const postObj = ref({
 
 // custom input
 const searchText = ref('Hello Laravel + Vue + Nuxt')
+
+// Multiple V-model binding
+const firstName = ref('Laravel')
+const lastName = ref('Vue')
 </script>
 
 <template>
@@ -67,5 +73,7 @@ const searchText = ref('Hello Laravel + Vue + Nuxt')
     <PostsVue />
     <hr>
     <CustomInput :searchText="searchText" @update-text="searchText = $event" />
+    <hr>
+    <UserName v-model:firstName="firstName" v-model:lastName="lastName"/>
   </div>
 </template>
