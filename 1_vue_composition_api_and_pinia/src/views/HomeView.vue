@@ -8,6 +8,7 @@ import WatcherComponent from "../components/WatcherComponent.vue";
 import SinglePost from "../components/SinglePost.vue";
 import PropValidate from "../components/PropValidate.vue";
 import PostsVue from "../components/PostsVue.vue";
+import CustomInput from "../components/CustomInput.vue";
 
 onBeforeMount(() => {
     console.log('before mount')
@@ -43,6 +44,9 @@ const postObj = ref({
   title: 'hello',
   hero: 'Itachi'
 })
+
+// custom input
+const searchText = ref('Hello Laravel + Vue + Nuxt')
 </script>
 
 <template>
@@ -61,5 +65,7 @@ const postObj = ref({
     <PropValidate :id="50" title="Laravel vue nuxt react next" :obj1="postObj" paragraph="hello" />
     <hr>
     <PostsVue />
+    <hr>
+    <CustomInput :searchText="searchText" @update-text="searchText = $event" />
   </div>
 </template>
