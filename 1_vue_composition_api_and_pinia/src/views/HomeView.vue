@@ -13,6 +13,7 @@ import UserName from '../components/UserName.vue'
 import MyButton from "../components/MyButton.vue";
 import SlotComponent from "../components/SlotComponent.vue";
 import MultipleSlot from '../components/MultipleSlot.vue'
+import PropsDrillingPosts from "../components/PropsDrillingPosts.vue";
 
 onBeforeMount
 (() => {
@@ -108,5 +109,6 @@ const showAlert = () => {
         <small>Footer Content</small>
       </template>
       </MultipleSlot>
+      <PropsDrillingPosts :searchText="searchText"/>
   </div>
 </template>
