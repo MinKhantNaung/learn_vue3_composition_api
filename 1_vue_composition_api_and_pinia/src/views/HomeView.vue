@@ -12,6 +12,7 @@ import CustomInput from "../components/CustomInput.vue";
 import UserName from '../components/UserName.vue'
 import MyButton from "../components/MyButton.vue";
 import SlotComponent from "../components/SlotComponent.vue";
+import MultipleSlot from '../components/MultipleSlot.vue'
 
 onBeforeMount
 (() => {
@@ -87,5 +88,25 @@ const showAlert = () => {
     <hr>
     <SlotComponent><span class="text-danger">Click</span><span class="text-success">Me{{ firstName }}{{ lastName }}</span></SlotComponent>
     <SlotComponent/>
+    <MultipleSlot>
+      <!-- <template v-slot:header>
+        <h1>Header Content</h1>    
+      </template>
+      <template v-slot:default>
+        <p>Main Content</p>
+      </template>
+      <template v-slot:footer>
+        <small>Footer Content</small>
+      </template> -->
+      <template #header>
+        <h1>Header Content</h1>
+      </template>
+      <template #default>
+        <p>Main Content</p>
+      </template>
+      <template #footer>
+        <small>Footer Content</small>
+      </template>
+      </MultipleSlot>
   </div>
 </template>
