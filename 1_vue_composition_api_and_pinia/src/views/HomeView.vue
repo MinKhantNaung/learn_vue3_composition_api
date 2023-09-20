@@ -11,6 +11,7 @@ import PostsVue from "../components/PostsVue.vue";
 import CustomInput from "../components/CustomInput.vue";
 import UserName from '../components/UserName.vue'
 import MyButton from "../components/MyButton.vue";
+import SlotComponent from "../components/SlotComponent.vue";
 
 onBeforeMount
 (() => {
@@ -83,5 +84,8 @@ const showAlert = () => {
     <UserName v-model:firstName="firstName" v-model:lastName="lastName"/>
     <hr>
     <MyButton class="btn btn-success" @click.prevent="showAlert" />
+    <hr>
+    <SlotComponent><span class="text-danger">Click</span><span class="text-success">Me{{ firstName }}{{ lastName }}</span></SlotComponent>
+    <SlotComponent/>
   </div>
 </template>
