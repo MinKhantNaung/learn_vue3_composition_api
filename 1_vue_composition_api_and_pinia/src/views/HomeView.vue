@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide, ref } from "vue";
+import { defineAsyncComponent, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide, ref } from "vue";
 import EventHandling from "../components/EventHandling.vue";
 import FormInput from "../components/FormInput.vue";
 import ListRendering from "../components/ListRendering.vue";
@@ -7,7 +7,8 @@ import TemplateSyntax from "../components/TemplateSyntax.vue";
 import WatcherComponent from "../components/WatcherComponent.vue";
 import SinglePost from "../components/SinglePost.vue";
 import PropValidate from "../components/PropValidate.vue";
-import PostsVue from "../components/PostsVue.vue";
+// import PostsVue from "../components/PostsVue.vue";
+import LoadingComponent from "../components/LoadingComponent.vue"
 import CustomInput from "../components/CustomInput.vue";
 import UserName from '../components/UserName.vue'
 import MyButton from "../components/MyButton.vue";
@@ -67,6 +68,20 @@ const showAlert = () => {
 const propMessage = ref('Hello World')
 // with this provide method, no need to define in components props
 provide('propMessage', propMessage)
+
+const showPosts = ref(false)
+
+const PostsVue = defineAsyncComponent({
+  loader: () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(import('../components/PostsVue.vue'))
+      }, 2000)
+    })
+  },
+  loadingComponent: LoadingComponent,
+  delay: 200
+})
 </script>
 
 <template>
@@ -84,7 +99,8 @@ provide('propMessage', propMessage)
     <SinglePost title="Laravel Vue Developer" postNum="50" :postTitle="postTitle" :postObj="postObj" />
     <PropValidate :id="50" title="Laravel vue nuxt react next" :obj1="postObj" paragraph="hello" />
     <hr>
-    <PostsVue />
+    <PostsVue v-if="showPosts" />
+    <button @click.prevent="showPosts = !showPosts" class="btn btn-primary">Click Here To Show Posts</button>
     <hr>
     <CustomInput :searchText="searchText" @update-text="searchText = $event" />
     <hr>
