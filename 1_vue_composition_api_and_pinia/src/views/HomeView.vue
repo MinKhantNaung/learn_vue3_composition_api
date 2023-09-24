@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, ref } from "vue";
+import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide, ref } from "vue";
 import EventHandling from "../components/EventHandling.vue";
 import FormInput from "../components/FormInput.vue";
 import ListRendering from "../components/ListRendering.vue";
@@ -62,6 +62,11 @@ const lastName = ref('Vue')
 const showAlert = () => {
   alert('You are Laravel+vue+react+nuxt+next Developer')
 }
+
+// provide injecting props
+const propMessage = ref('Hello World')
+// with this provide method, no need to define in components props
+provide('propMessage', propMessage)
 </script>
 
 <template>
@@ -109,6 +114,6 @@ const showAlert = () => {
         <small>Footer Content</small>
       </template>
       </MultipleSlot>
-      <PropsDrillingPosts :searchText="searchText"/>
+      <PropsDrillingPosts />
   </div>
 </template>

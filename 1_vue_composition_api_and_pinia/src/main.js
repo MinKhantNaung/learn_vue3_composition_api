@@ -12,6 +12,9 @@ const app = createApp(App)
 
 app.use(router)
 
+// injecting props form app
+app.provide('main', 'Main value from app')
+
 // components
 app.component('ComputedComponent', ComputedComponent)
 app.component('StyleBinding', StyleBinding)
