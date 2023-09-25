@@ -15,6 +15,7 @@ import MyButton from "../components/MyButton.vue";
 import SlotComponent from "../components/SlotComponent.vue";
 import MultipleSlot from '../components/MultipleSlot.vue'
 import PropsDrillingPosts from "../components/PropsDrillingPosts.vue";
+import MouseTracker from "../components/MouseTracker.vue";
 
 onBeforeMount
 (() => {
@@ -86,6 +87,7 @@ const PostsVue = defineAsyncComponent({
 
 <template>
   <div>
+    <MouseTracker />
     <Counter ref="counterRef" />
     <TemplateSyntax />
     <ComputedComponent />
