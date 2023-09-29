@@ -1,10 +1,10 @@
-import { onMounted, ref } from "vue";
+import { onMounted, ref, unref } from "vue";
 
-export default function getPosts(url) {
+export default function getPosts() {
     const products = ref(null);
     const error = ref(null)
 
-    const getProducts = async () => {
+    const getProductsByApi = async (url) => {
         try {
             const response = await fetch(url);
             products.value = await response.json();
@@ -13,12 +13,9 @@ export default function getPosts(url) {
         }
     }
 
-    onMounted(() => {
-        getProducts()
-    })
-
     return {
         products,
         error,
+        getProductsByApi
     }
 }
