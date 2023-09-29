@@ -1,8 +1,7 @@
 <template>
     <div>
         <h1>Products</h1>
-        Load Post ids : <span v-for="n in 20" :key="n" @click.prevent="getProductsByApi(`https://fakestoreapi.com/products/${n}`)" class="btn btn-sm btn-secondary ms-1">{{ n }}</span>
-        <hr>
+       <hr>
         <div v-if="error">
             Error gets {{ error }}
         </div>
@@ -14,7 +13,8 @@
                 <div class="col-md-1">
                     <img :src="product.image" class="w-100">
                 </div>
-                <button class="btn btn-sm btn-success">Buy</button>
+                <button class="btn btn-sm btn-success" v-focus>Buy</button>
+                <input type="text" v-focus >
                 <hr>
             </div>
         </div>
@@ -28,7 +28,18 @@
 import { computed, ref } from 'vue'
 import getProducts from '../composables/getProducts'
 
+// const name must be vFocus
+const vFocus = {
+    mounted: (el) => {
+        el.focus() // this will auto focus input
+        el.style.borderColor = 'green';
+        el.style.color = 'blue';
+    }
+}
+
 const postId = ref(null);
 
 const { products, error, getProductsByApi } = getProducts()
+const url = 'https://fakestoreapi.com/products'
+getProductsByApi(url)
 </script>

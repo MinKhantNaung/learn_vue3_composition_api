@@ -12,6 +12,13 @@ const app = createApp(App)
 
 app.use(router)
 
+// v-focus in main globally
+app.directive('focus', {
+    mounted(el) {
+        el.style.color = 'yellow'
+    }
+})
+
 // injecting props form app
 app.provide('main', 'Main value from app')
 
