@@ -14,7 +14,8 @@ app.use(router)
 
 // v-focus in main globally
 app.directive('focus', {
-    mounted(el) {
+    mounted(el, binding, vNode, prevNode) {
+        console.log(binding)
         el.style.color = 'yellow'
     }
 })

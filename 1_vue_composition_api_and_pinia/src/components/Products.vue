@@ -14,7 +14,7 @@
                     <img :src="product.image" class="w-100">
                 </div>
                 <button class="btn btn-sm btn-success" v-focus>Buy</button>
-                <input type="text" v-focus >
+                <input type="text" v-focus="color" >
                 <hr>
             </div>
         </div>
@@ -28,14 +28,15 @@
 import { computed, ref } from 'vue'
 import getProducts from '../composables/getProducts'
 
+const color = 'Laravel Vue Nuxt React Next'
 // const name must be vFocus
-const vFocus = {
-    mounted: (el) => {
-        el.focus() // this will auto focus input
-        el.style.borderColor = 'green';
-        el.style.color = 'blue';
-    }
-}
+// const vFocus = {
+//     mounted: (el) => {
+//         el.focus() // this will auto focus input
+//         el.style.borderColor = 'green';
+//         el.style.color = 'blue';
+//     }
+// }
 
 const postId = ref(null);
 
