@@ -3,7 +3,7 @@
         <hr>
         <h1>Transition Component</h1>
         <button @click.prevent="show = !show">Toggle</button>
-        <Transition name="fade">
+        <Transition name="slide-fade">
             <h1 v-if="show" class="bg-success text-white">Min Khant Naung (Laravel Vue Nuxt)</h1>
         </Transition>
     </div>
@@ -15,51 +15,17 @@ const show = ref(true)
 </script>
 
 <style scoped>
-/* .v-enter-from, .v-leave-to {
-    opacity: 0;
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
 }
 
-.v-enter-active, .v-leave-active {
-    transition: opacity 0.5s ease;
-} */
-
-/* transition classes */
-/* .v-enter-from */
-/* .v-enter-to */
-/* .v-enter-active  */
-
-/* .v-leave-from */
-/* .v-leave-to */
-/* .v-leave-active  */
-/* transition classes */
-
-/* .v-enter-from {
-    opacity: 0;
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.v-enter-to {
-    opacity: 1;
-}
-
-.v-leave-from {
-    opacity: 1;
-}
-
-.v-leave-to {
-    opacity: 0;
-}
-
-.v-enter-active, .v-leave-active {
-    transition: opacity 2s ease; */
-/* } */
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
   opacity: 0;
 }
 </style>
