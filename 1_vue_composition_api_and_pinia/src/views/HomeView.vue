@@ -1,5 +1,5 @@
 <script setup>
-import { defineAsyncComponent, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide, ref } from "vue";
+import { defineAsyncComponent, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide, ref, TransitionGroup } from "vue";
 import EventHandling from "../components/EventHandling.vue";
 import FormInput from "../components/FormInput.vue";
 import ListRendering from "../components/ListRendering.vue";
@@ -18,6 +18,7 @@ import PropsDrillingPosts from "../components/PropsDrillingPosts.vue";
 import MouseTracker from "../components/MouseTracker.vue";
 import Products from "../components/Products.vue";
 import TransitionComponent from '../components/TransitionComponent.vue'
+import TransitionList from '../components/TransitionList.vue'
 
 onBeforeMount
 (() => {
@@ -89,6 +90,7 @@ const PostsVue = defineAsyncComponent({
 
 <template>
   <div>
+    <TransitionList />
     <TransitionComponent />
     <Products />
     <MouseTracker />
