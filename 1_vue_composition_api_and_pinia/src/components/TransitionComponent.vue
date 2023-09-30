@@ -3,7 +3,7 @@
         <hr>
         <h1>Transition Component</h1>
         <button @click.prevent="show = !show">Toggle</button>
-        <Transition name="slide-fade">
+        <Transition name="bounce">
             <h1 v-if="show" class="bg-success text-white">Min Khant Naung (Laravel Vue Nuxt)</h1>
         </Transition>
     </div>
@@ -15,17 +15,21 @@ const show = ref(true)
 </script>
 
 <style scoped>
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
 }
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
 }
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
